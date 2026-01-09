@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=users.username%></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="icon"
+          href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png?20200512141346">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fasthand&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h3>Instagram</h3>
+        <form action="/posts/home" method="POST">
+            <div class="sidebutton">
+                <i class="fa-solid fa-house"></i>
+                <button class="buttons">Home</button>
+            </div>
+        </form>
+        <form action="/posts/userprofile" method="POST">
+            <div class="sidebutton">
+                <i class="fa-regular fa-user"></i>
+                <button class="buttons">Profile</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="info" id="info2">
+        <img src="<%=users.logo%>" alt="profile image">
+
+        <h2><%=users.username%></h2>
+    </div>
+    <p class="pro"><%=users.posts%> Posts &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%=users.followers%> Followers &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=users.following%> Following</p>
+
+</div>
+<p class="bio"><%=users.bname%></p>
+<p class="bio"><%=users.b1%></p><br>
+<hr style="border-color: grey; width:50%;">
+<h3 class="p">Posts :</h3>
+<% for(userss of posts) { %>
+    <div class="post">
+        <img src="<%= users.logo %>" alt="profile" id="logo">
+        <a href="http://localhost:3000/posts/<%=users.id%>"><%=users.username%></a>
+        <br>
+        <img src="<%=userss.img%>" alt="followers posts">
+        <br>
+        <i class="fa-regular fa-heart"></i>&nbsp;&nbsp;<%=userss.likes%>&nbsp;&nbsp;&nbsp;
+        <i class="fa-regular fa-comment"></i>&nbsp;&nbsp;<%=userss.comments%>&nbsp;&nbsp;&nbsp;
+        <i class="fa-solid fa-share"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa-regular fa-bookmark"></i>
+        <p><%=users.username%>&nbsp;&nbsp;<%=userss.caption%></p>
+        <form action="/posts/<%=users.id%>?_method=DELETE" method="POST">
+        <button class="edit" id="delete">Delete Post</button>
+        </form>
+        <br><br>
+    </div>
+<%}%>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/home.css">
+    <link rel="icon"
+          href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png?20200512141346">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fasthand&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="insta">
+<div class="sidebar">
+    <h3>Instagram</h3>
+    <form action="/posts/home" method="POST">
+        <div class="sidebutton">
+        <i class="fa-solid fa-house"></i>
+        <button class="buttons">Home</button>
+        </div>
+    </form>
+    <form action="/posts/userprofile" method="POST">
+        <div class="sidebutton">
+        <i class="fa-regular fa-user"></i>
+        <button class="buttons">Profile</button>
+        </div>
+    </form>
+</div>
+<div class="content">
+    <div class="stories">
+        <% for(follow of followers){ %>
+            <div class="story">
+                <img src="<%= follow.story %>" alt="storiess">
+            </div>
+        <%}%>
+    </div>
+    <br>
+    <hr style="border-color: grey;">
+<!--    <h2>Welcome @<%=user%></h2>-->
+    <br>
+    <br>
+<%for(follower of followers) {%>
+        <div class="follower">
+            <img src="<%= follower.logo %>" alt="profile" id="logo">
+            <a href="http://localhost:3000/posts/<%=follower.id%>"><%= follower.username %></a>
+            <br>
+            <img src="<%=follower.img%>" alt="followers posts">
+            <br>
+            <i class="fa-regular fa-heart"></i>&nbsp;&nbsp;<%=follower.likes%>&nbsp;&nbsp;&nbsp;
+            <i class="fa-regular fa-comment"></i>&nbsp;&nbsp;<%=follower.comments%>&nbsp;&nbsp;&nbsp;
+            <i class="fa-solid fa-share"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa-regular fa-bookmark"></i>
+            <p><%=follower.username%>&nbsp;&nbsp;<%=follower.caption%></p>
+            <br><br>
+        </div>
+    <%}%>
+</div>
+</div>
+<h3>Have a Good Day @<%=user%></h3>
+</body>
+</html>
