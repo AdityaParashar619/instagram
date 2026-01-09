@@ -149,6 +149,9 @@ let users={
     bname:"Aditya Parashar",
     b1:"Jai Shree Ram🚩"
 }
+app.get("/",function(req,res){
+    res.send("addlogin");
+})
 //render to login Page
 app.get('/posts', (req, res) => {
     res.render('login.ejs')
